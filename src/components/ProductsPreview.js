@@ -12,7 +12,7 @@ export default async function ProductsPreview() {
   if (error) {
     console.error("Fetch error:", error.message);
   }
-
+  console.log(products);
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>Our Products</h2>

@@ -1,5 +1,3 @@
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
 import styles from "./ProductCard.module.css";
 
@@ -11,6 +9,7 @@ export default function ProductCard({
   main_image,
   slug,
 }) {
+
   return (
     <div className={styles.card}>
       <img src={main_image} alt={name} />
