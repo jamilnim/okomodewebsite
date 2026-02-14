@@ -1,0 +1,66 @@
+.container {
+    max-width: 700px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+  }
+  
+  .card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  .title {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #005F02;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  .field label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .field input,
+  .field textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  
+  .field textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .button {
+    margin-top: 1rem;
+    padding: 0.9rem;
+    background-color: #005F02;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #004601;
+  }
+  

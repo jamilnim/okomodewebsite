@@ -1,0 +1,55 @@
+.container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  
+  .addBtn {
+    background: #005F02;
+    color: white;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .card {
+    display: flex;
+    gap: 1.5rem;
+    border: 1px solid #eee;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  .card img {
+    width: 150px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .info h3 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .editBtn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #C0B87A;
+    color: black;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  

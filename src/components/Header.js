@@ -39,6 +39,7 @@ export default function Header() {
         <Link href="/products">Product</Link>
         <Link href="/service">Service</Link>
         <Link href="/customers-eye">Customer's Eye</Link>
+        <Link href="/admin/products">Admin</Link>
         <Link href="/contact" className={styles.contactBtn}>
           Contact
         </Link>
