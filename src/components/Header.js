@@ -2,18 +2,33 @@
 
 import Link from "next/link";
 import styles from "./Header.module.css";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [adminOpen, setAdminOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setAdminOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <header className={styles.header}>
-      
       {/* Logo */}
       <div className={styles.logo}>
         <Link href="/">
-          <img 
+          <img
             src="/pageimage/okoLogo.png"
             alt="Oko Sourcing Logo"
             className={styles.logoImg}
@@ -21,8 +36,8 @@ export default function Header() {
         </Link>
       </div>
 
-      {/* Burger Button (Mobile Only) */}
-      <div 
+      {/* Burger */}
+      <div
         className={`${styles.burger} ${menuOpen ? styles.active : ""}`}
         onClick={() => setMenuOpen(!menuOpen)}
       >
@@ -33,13 +48,52 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className={`${styles.nav} ${menuOpen ? styles.showMenu : ""}`}>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/products">Product</Link>
-        <Link href="/services">Service</Link>
-        <Link href="/customers-eye">Customer's Eye</Link>
-        <Link href="/admin/products">Admin</Link>
-        <Link href="/contact" className={styles.contactBtn}>
+        <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
+        <Link href="/products" onClick={() => setMenuOpen(false)}>Product</Link>
+        <Link href="/services" onClick={() => setMenuOpen(false)}>Service</Link>
+        <Link href="/customers-eye" onClick={() => setMenuOpen(false)}>
+          Customer's Eye
+        </Link>
+
+        {/* Admin Dropdown */}
+        <div className={styles.dropdown} ref={dropdownRef}>
+          <span
+            className={styles.dropdownTitle}
+            onClick={() => setAdminOpen(!adminOpen)}
+          >
+            Admin ▾
+          </span>
+
+          {adminOpen && (
+            <div className={styles.dropdownMenu}>
+              <Link
+                href="/admin/products"
+                onClick={() => {
+                  setAdminOpen(false);
+                  setMenuOpen(false);
+                }}
+              >
+                Products
+              </Link>
+              <Link
+                href="/admin/messages"
+                onClick={() => {
+                  setAdminOpen(false);
+                  setMenuOpen(false);
+                }}
+              >
+                Messages
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <Link
+          href="/contact"
+          className={styles.contactBtn}
+          onClick={() => setMenuOpen(false)}
+        >
           Contact
         </Link>
       </nav>

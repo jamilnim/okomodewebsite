@@ -16,6 +16,7 @@ export default async function AdminProducts() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1>All Products</h1>
+       
 
         <Link href="/admin/add-product" className={styles.addBtn}>
           + Add Product
@@ -29,9 +30,15 @@ export default async function AdminProducts() {
 
             <div className={styles.info}>
               <h3>{product.name}</h3>
-              <p><strong>Slug:</strong> {product.slug}</p>
-              <p><strong>Price:</strong> ${product.price}</p>
-              <p><strong>Summary:</strong> {product.summary}</p>
+              <p>
+                <strong>Slug:</strong> {product.slug}
+              </p>
+              <p>
+                <strong>Price:</strong> ${product.price}
+              </p>
+              <p>
+                <strong>Summary:</strong> {product.summary}
+              </p>
 
               <Link
                 href={`/admin/products/${product.id}`}
