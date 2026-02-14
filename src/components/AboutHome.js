@@ -6,11 +6,11 @@ export default function AboutHome() {
     <section className={styles.about}>
       <div className={styles.image}>
 
-        
+
       </div>
 
       <div className={styles.content}>
-        <h2>🌿 About Oko-Moda</h2>
+        <h2>🌿 About Oko-Mode</h2>
         <h3>Sustainable Sourcing. Technical Excellence. Trusted Partnerships.</h3>
 
         <p>
