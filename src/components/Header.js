@@ -35,9 +35,8 @@ export default function Header() {
       <nav className={`${styles.nav} ${menuOpen ? styles.showMenu : ""}`}>
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
-        <Link href="/vision">Company Vision</Link>
         <Link href="/products">Product</Link>
-        <Link href="/service">Service</Link>
+        <Link href="/services">Service</Link>
         <Link href="/customers-eye">Customer's Eye</Link>
         <Link href="/admin/products">Admin</Link>
         <Link href="/contact" className={styles.contactBtn}>
