@@ -1,23 +1,82 @@
+/* ========================= */
+/* MOBILE FIRST */
+/* ========================= */
+
 .footer {
     background-color: #111;
     color: #fff;
-    padding: 3rem 2rem;
-    margin-top: 5rem;
+    padding: 3rem 1.5rem;
   }
   
   .content {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
   }
   
-  .content h3 {
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
+  /* Logo */
+  .logoWrapper {
+    display: inline-block;
   }
   
-  .content p {
-    font-size: 0.9rem;
-    opacity: 0.8;
+  .logoImg {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+  }
+  
+  /* Tagline */
+  .tagline {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    max-width: 500px;
+    line-height: 1.6;
+  }
+  
+  /* Copyright */
+  .copyright {
+    font-size: 0.85rem;
+    opacity: 0.6;
+  }
+  
+  
+  /* ========================= */
+  /* TABLET */
+  /* ========================= */
+  
+  @media (min-width: 768px) {
+  
+    .logoImg {
+      height: 65px;
+    }
+  
+    .tagline {
+      font-size: 1rem;
+    }
+  }
+  
+  
+  /* ========================= */
+  /* DESKTOP */
+  /* ========================= */
+  
+  @media (min-width: 1200px) {
+  
+    .footer {
+      padding: 4rem 2rem;
+    }
+  
+    .content {
+      gap: 2rem;
+    }
+  
+    .logoImg {
+      height: 75px;
+    }
+  
   }
   
