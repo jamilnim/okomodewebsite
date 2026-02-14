@@ -1,24 +1,38 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./Header.module.css";
-import React from "react";
+import React, { useState } from "react";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       
-      {/* Logo Image */}
+      {/* Logo */}
       <div className={styles.logo}>
         <Link href="/">
           <img 
-            src="/pageimage/okoLogo.png
-            " 
-            alt="Oko Sourcing Logo" 
+            src="/pageimage/okoLogo.png"
+            alt="Oko Sourcing Logo"
             className={styles.logoImg}
           />
         </Link>
       </div>
 
-      <nav className={styles.nav}>
+      {/* Burger Button (Mobile Only) */}
+      <div 
+        className={`${styles.burger} ${menuOpen ? styles.active : ""}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Navigation */}
+      <nav className={`${styles.nav} ${menuOpen ? styles.showMenu : ""}`}>
         <Link href="/">Home</Link>
         <Link href="/about">About</Link>
         <Link href="/vision">Company Vision</Link>
