@@ -1,0 +1,106 @@
+.hero {
+    height: 100vh;
+  
+    /* IMPORTANT: public folder path */
+    background-image: url("/pageimage/okohero.png");
+  
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+  
+    position: relative;
+    display: flex;
+    align-items: center;
+  
+    /* Move content more to right */
+    padding-left: 9rem;
+    padding-right: 5rem;
+  
+    color: white;
+  }
+  
+  /* Dark overlay */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.75) 30%,
+      rgba(0, 0, 0, 0.55) 60%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+  
+  /* Content container */
+  .content {
+    position: relative;
+    max-width: 600px;
+    z-index: 2;
+  }
+  
+  /* Main heading */
+  .content h1 {
+    font-size: 3.2rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+  
+  /* Slogan */
+  .slogan {
+    margin: 1.5rem 0;
+    font-size: 1.25rem;
+    opacity: 0.95;
+    font-weight: 400;
+  }
+  
+  /* Trust list */
+  .trustPoints {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2.5rem 0;
+  }
+  
+  .trustPoints li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+  
+  /* Buttons container */
+  .buttons {
+    display: flex;
+    gap: 1.2rem;
+  }
+  
+  /* Portfolio button */
+  .portfolioBtn {
+    padding: 0.9rem 1.8rem;
+    background-color: #C0B87A;
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .portfolioBtn:hover {
+    background-color: #a99f63;
+    transform: translateY(-2px);
+  }
+  
+  /* Contact button */
+  .contactBtn {
+    padding: 0.9rem 1.8rem;
+    border: 1px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+  
+  .contactBtn:hover {
+    background-color: white;
+    color: black;
+    transform: translateY(-2px);
+  }
+  

@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.logoImg {
+  height: 70px;   /* adjust size here */
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav {
+  display: flex;
+  gap: 1.8rem;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+.nav a:hover {
+  color: #005F02;
+}
+
+.contactBtn {
+  padding: 0.5rem 1.2rem;
+  background-color: #005F02;
+  color: white !important;
+  border-radius: 4px;
+}
