@@ -52,9 +52,7 @@ export default function Header() {
         <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link href="/products" onClick={() => setMenuOpen(false)}>Product</Link>
         <Link href="/services" onClick={() => setMenuOpen(false)}>Service</Link>
-        <Link href="/customers-eye" onClick={() => setMenuOpen(false)}>
-          Customer's Eye
-        </Link>
+       
 
         {/* Admin Dropdown */}
         <div className={styles.dropdown} ref={dropdownRef}>
