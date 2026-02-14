@@ -1,0 +1,36 @@
+.aboutPage {
+    padding: 6rem 5rem;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .aboutPage h1 {
+    color: #005F02;
+    margin-bottom: 0.5rem;
+  }
+  
+  .aboutPage h2 {
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  
+  .aboutPage h3 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #427A43;
+  }
+  
+  .aboutPage p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  
+  .aboutPage ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .aboutPage li {
+    margin-bottom: 0.5rem;
+  }
+  
