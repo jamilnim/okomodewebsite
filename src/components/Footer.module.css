@@ -1,81 +1,131 @@
 /* ========================= */
-/* MOBILE FIRST */
+/* Base */
 /* ========================= */
 
 .footer {
     background-color: #111;
     color: #fff;
-    padding: 3rem 1.5rem;
+    padding: 3rem 1rem;
   }
   
-  .content {
+  /* Container */
+  .container {
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
+    flex-direction: column; /* Mobile first */
+    gap: 2rem;
   }
   
-  /* Logo */
-  .logoWrapper {
-    display: inline-block;
+  /* ========================= */
+  /* Middle Section (Mobile First Top) */
+  /* ========================= */
+  
+  .middleSection {
+    text-align: center;
   }
   
   .logoImg {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
+    height: 60px;
+    margin-bottom: 1rem;
   }
   
-  /* Tagline */
   .tagline {
     font-size: 0.95rem;
-    opacity: 0.85;
-    max-width: 500px;
+    opacity: 0.8;
+    max-width: 400px;
+    margin: 0 auto 1rem;
     line-height: 1.6;
   }
   
-  /* Copyright */
   .copyright {
-    font-size: 0.85rem;
-    opacity: 0.6;
+    font-size: 0.8rem;
+    opacity: 0.5;
   }
   
-  
   /* ========================= */
-  /* TABLET */
+  /* Address Section (Mobile Center) */
   /* ========================= */
   
-  @media (min-width: 768px) {
-  
-    .logoImg {
-      height: 65px;
-    }
-  
-    .tagline {
-      font-size: 1rem;
-    }
+  .addressSection {
+    text-align: center; /* Mobile center */
   }
   
+  .addressSection h4 {
+    margin-bottom: 0.8rem;
+  }
+  
+  .addressSection p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* ========================= */
+  /* Nav Section (Mobile Horizontal) */
+  /* ========================= */
+  
+  .navSection {
+    text-align: center;
+  }
+  
+  .navSection h4 {
+    margin-bottom: 1rem;
+  }
+  
+  .navLinks {
+    display: flex;
+    justify-content: center; /* horizontal */
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .navLinks a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.9rem;
+    transition: 0.3s ease;
+  }
+  
+  .navLinks a:hover {
+    color: #ffffff;
+  }
   
   /* ========================= */
   /* DESKTOP */
   /* ========================= */
   
-  @media (min-width: 1200px) {
+  @media (min-width: 768px) {
   
-    .footer {
-      padding: 4rem 2rem;
+    .container {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
     }
   
-    .content {
-      gap: 2rem;
+    /* Left - Vertical Nav */
+    .navSection {
+      width: 25%;
+      text-align: left;
     }
   
-    .logoImg {
-      height: 75px;
+    .navLinks {
+      flex-direction: column; /* vertical */
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+  
+    /* Middle */
+    .middleSection {
+      width: 40%;
+      text-align: center;
+    }
+  
+    /* Right - Address */
+    .addressSection {
+      width: 25%;
+      text-align: right;
+      margin-right: 10px; /* 🔥 only 10px from right edge */
     }
   
   }

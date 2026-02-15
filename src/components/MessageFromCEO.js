@@ -9,7 +9,7 @@ export default function MessageFromCEO() {
         {/* Left Side Image */}
         <div className={styles.imageWrapper}>
           <img
-            src="/pageimage/ceopic.jpeg"   /* put CEO image in public/pageimage */
+            src="/pageimage/ceopic.png"   /* put CEO image in public/pageimage */
             alt="CEO Öko-Mode"
           />
         </div>

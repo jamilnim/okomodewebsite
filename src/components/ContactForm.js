@@ -75,7 +75,8 @@ export default function ContactForm() {
       <div className={styles.address}>
         <h3>Address</h3>
         <p>5250 Harmony Avenue, North Hollywood, CA 01601, USA</p>
-        <p>+1 8188217841</p>
+        <p>📱 :+1 8188217841</p>
+        <p>✉️ : ahmedfaisalislam76@gmail.com</p>
       </div>
     </section>
   );

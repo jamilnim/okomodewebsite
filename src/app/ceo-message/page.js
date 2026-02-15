@@ -6,7 +6,7 @@ export default function CeoPage() {
       <div className={styles.card}>
 
         <div className={styles.header}>
-          <img src="/pageimage/ceopic.jpeg" alt="CEO Öko-Mode" />
+          <img src="/pageimage/ceopic.png" alt="CEO Öko-Mode" />
           <h1>Message from the CEO</h1>
         </div>
 

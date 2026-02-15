@@ -36,13 +36,15 @@
 
 .nav a {
   text-decoration: none;
-  color: #333;
+  color:#427A43;
   font-size: 0.95rem;
   transition: 0.3s ease;
+  font-weight: 600;
 }
 
 .nav a:hover {
-  color: #005F02;
+  color: #C0B87A;
+  font-size: 1rem;
 }
 
 /* ========================= */

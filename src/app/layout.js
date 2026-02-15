@@ -2,6 +2,7 @@ export const dynamic = "force-dynamic";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
   title: "Juste Bag Sourcing",
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <Header />
         <main style={{ marginTop: "80px" }}>{children}</main>
+        <ScrollToTop />
         <Footer />
       </body>
     </html>

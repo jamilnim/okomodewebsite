@@ -1,0 +1,29 @@
+.button {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    background-color: #005f02;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+  
+  .button:hover {
+    background-color: #427a43;
+    transform: translateY(-3px);
+  }
+  
+  .show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
