@@ -14,7 +14,8 @@ export default async function ProductsPreview() {
   const { data: products, error } = await supabase
     .from("products")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending: false })
+    .limit(4); // optional: keep preview short
 
   if (error) {
     console.error("Fetch error:", error.message);
@@ -28,6 +29,13 @@ export default async function ProductsPreview() {
         {products?.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
+      </div>
+
+      {/* 👇 New Button */}
+      <div className={styles.buttonWrapper}>
+        <Link href="/products" className={styles.viewAllBtn}>
+          View All Products
+        </Link>
       </div>
     </section>
   );

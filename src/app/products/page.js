@@ -20,10 +20,13 @@ export default async function ProductsPage() {
   }
 
   return (
+    <>
+    <div className="productHead"> <h1>Products</h1></div>
     <div className={styles.grid}>
       {products?.map((product) => (
         <ProductCard key={product.id} {...product} />
       ))}
     </div>
+    </>
   );
 }
