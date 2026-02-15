@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { supabase } from "../../../lib/supabase";
 import styles from "./EditProduct.module.css";
 
 export default function EditProduct({ product }) {
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,6 +77,7 @@ export default function EditProduct({ product }) {
       console.error(error);
     } else {
       alert("Product updated successfully!");
+      router.refresh(); // 🔥 forces Next.js to refetch server pages
     }
 
     setLoading(false);
@@ -94,7 +97,8 @@ export default function EditProduct({ product }) {
       console.error(error);
     } else {
       alert("Product deleted successfully!");
-      window.location.href = "/admin/products";
+      router.push("/admin/products");
+      router.refresh(); // 🔥 ensures list updates
     }
   };
 
@@ -136,28 +140,21 @@ export default function EditProduct({ product }) {
             />
           </div>
 
-          {/* Image Section */}
           <div className={styles.imageBlock}>
             <p>Main Image</p>
-            {product.main_image && (
-              <img src={product.main_image} alt="" />
-            )}
+            {product.main_image && <img src={product.main_image} alt="" />}
             <input type="file" name="mainImage" accept="image/*" />
           </div>
 
           <div className={styles.imageBlock}>
             <p>Other Image 1</p>
-            {product.other_image1 && (
-              <img src={product.other_image1} alt="" />
-            )}
+            {product.other_image1 && <img src={product.other_image1} alt="" />}
             <input type="file" name="otherImage1" accept="image/*" />
           </div>
 
           <div className={styles.imageBlock}>
             <p>Other Image 2</p>
-            {product.other_image2 && (
-              <img src={product.other_image2} alt="" />
-            )}
+            {product.other_image2 && <img src={product.other_image2} alt="" />}
             <input type="file" name="otherImage2" accept="image/*" />
           </div>
 
