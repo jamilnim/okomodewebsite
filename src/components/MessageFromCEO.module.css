@@ -1,0 +1,135 @@
+/* ======================= */
+/* Section */
+/* ======================= */
+
+.section {
+    padding: 4rem 1rem;
+    background-color: #f9f9f9;
+
+  }
+  
+  /* ======================= */
+  /* Container (Mobile First) */
+  /* ======================= */
+  
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;   /* Mobile: stacked */
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* ======================= */
+  /* Image */
+  /* ======================= */
+  
+  .imageWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .imageWrapper img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+  }
+  
+  /* ======================= */
+  /* Content */
+  /* ======================= */
+  
+  .content {
+    position: relative;
+    text-align: center;
+    padding: 2rem 1rem;
+    z-index: 1;
+  }
+  
+  /* Watermark logo behind text only */
+  .content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/pageimage/okoLogo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+    opacity: 0.07;          /* subtle watermark */
+    z-index: -1;
+  }
+  
+  /* ======================= */
+  /* Typography */
+  /* ======================= */
+  
+  .content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #005f02;
+    font-weight: 600;
+  }
+  
+  .content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #444;
+  }
+  
+  /* ======================= */
+  /* Button */
+  /* ======================= */
+  
+  .button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.8rem;
+    background: #005f02;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.3s ease;
+  }
+  
+  .button:hover {
+    background: #427a43;
+    transform: translateY(-2px);
+  }
+  
+  /* ======================= */
+  /* Desktop */
+  /* ======================= */
+  
+  @media (min-width: 768px) {
+  
+    .container {
+      flex-direction: row;    /* Side-by-side */
+      align-items: center;
+    }
+  
+    .imageWrapper {
+      flex: 1;
+      justify-content: flex-start;
+    }
+  
+    .content {
+      flex: 1;
+      text-align: left;
+      padding: 3rem;
+    }
+  
+    .content::before {
+      background-position: right center;
+      background-size: 60%;
+      opacity: 0.06;
+    }
+  
+    .content h2 {
+      font-size: 2.2rem;
+    }
+  }
+  

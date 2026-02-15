@@ -1,0 +1,39 @@
+.wrapper {
+    padding: 4rem 1rem;
+    background: #f3f3f3;
+  }
+  
+  .card {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .header img {
+    width: 180px;
+    border-radius: 5%;
+    margin-bottom: 1rem;
+  }
+  
+  .header h1 {
+    color: #005f02;
+  }
+  
+  .content p {
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+  }
+  
+  .content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
