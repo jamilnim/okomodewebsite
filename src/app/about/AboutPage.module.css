@@ -3,132 +3,165 @@
 /* ======================= */
 
 .wrapper {
-    background-color: #f3f3f3;
-    padding: 4rem 1rem;
+  background-color: #f3f3f3;
+  padding: 4rem 1rem;
+}
+
+/* ======================= */
+/* Big Card */
+/* ======================= */
+
+.card {
+  max-width: 1100px;
+  margin: auto;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* ======================= */
+/* Header Section */
+/* ======================= */
+
+.hero {
+  position: relative;
+  height: 320px;
+  background-image: url("/pageimage/abotpagehead.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem;
+  overflow: hidden;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 95, 2, 0.6), rgba(0, 0, 0, 0.65));
+}
+
+/* Text */
+.heroContent {
+  position: relative;
+  color: white;
+  max-width: 700px;
+}
+
+.heroContent h1 {
+  font-size: 1.9rem;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.heroContent h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Wave Shape */
+.wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+/* ======================= */
+/* Content */
+/* ======================= */
+
+.content {
+  padding: 3rem 2rem;
+}
+
+.content h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #005f02;
+  font-weight: 600;
+}
+
+.content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.content li {
+  margin-bottom: 0.6rem;
+}
+
+/* ======================= */
+/* Desktop */
+/* ======================= */
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 6rem 2rem;
   }
-  
-  /* ======================= */
-  /* Big Card */
-  /* ======================= */
-  
-  .card {
-    max-width: 1100px;
-    margin: auto;
-    background: white;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
-  }
-  
-  /* ======================= */
-  /* Header Section */
-  /* ======================= */
-  
+
   .hero {
-    position: relative;
-    height: 280px;
-    background-image: url("/pageimage/abotpagehead.png");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: flex-end;
-    padding: 2rem;
-    overflow: hidden;
+    height: 350px;
+    padding: 3rem;
   }
-  
-  /* Overlay */
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 95, 2, 0.6),
-      rgba(0, 0, 0, 0.65)
-    );
-  }
-  
-  /* Text */
-  .heroContent {
-    position: relative;
-    color: white;
-    max-width: 700px;
-  }
-  
+
   .heroContent h1 {
-    font-size: 1.9rem;
-    margin-bottom: 0.6rem;
-    font-weight: 600;
+    font-size: 2.6rem;
   }
-  
+
   .heroContent h2 {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: 1.2rem;
   }
-  
-  /* Wave Shape */
-  .wave {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 100px;
-  }
-  
-  /* ======================= */
-  /* Content */
-  /* ======================= */
-  
+
   .content {
-    padding: 3rem 2rem;
+    padding: 4rem 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 260px;
+    padding: 2rem 1.5rem 3rem;
+    align-items: flex-start; /* move content upward */
+  }
+
+  .heroContent {
+    margin-top: 1rem; /* push text slightly down from top */
+  }
+
+  .wave {
+    height: 60px; /* make wave smaller on mobile */
+  }
+}
+
+/* ======================= */
+/* Desktop Adjustment */
+/* ======================= */
+
+@media (min-width: 769px) {
+    .heroContent {
+      transform: translateY(-1rem); /* move heading up */
+    }
   }
   
-  .content h3 {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    color: #005F02;
-    font-weight: 600;
-  }
-  
-  .content p {
-    margin-bottom: 1.2rem;
-    line-height: 1.8;
-    color: #444;
-  }
-  
-  .content ul {
-    margin-left: 1.5rem;
-    margin-bottom: 1.8rem;
-  }
-  
-  .content li {
-    margin-bottom: 0.6rem;
-  }
   
   /* ======================= */
-  /* Desktop */
+  /* Mobile Adjustment */
   /* ======================= */
   
-  @media (min-width: 1024px) {
-    .wrapper {
-      padding: 6rem 2rem;
-    }
-  
-    .hero {
-      height: 350px;
-      padding: 3rem;
-    }
-  
-    .heroContent h1 {
-      font-size: 2.6rem;
-    }
-  
-    .heroContent h2 {
-      font-size: 1.2rem;
-    }
-  
-    .content {
-      padding: 4rem 4rem;
+  @media (max-width: 768px) {
+    .heroContent {
+      transform: translateY(1rem); /* move heading down */
     }
   }
   

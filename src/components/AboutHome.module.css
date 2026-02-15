@@ -97,6 +97,8 @@
   
     .content h3 {
       font-size: 1.3rem;
+      color: black !important;
+      font-style: italic;
     }
   }
   

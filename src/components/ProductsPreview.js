@@ -3,6 +3,7 @@ export const dynamic = "force-dynamic";
 import { createClient } from "@supabase/supabase-js";
 import ProductCard from "./ProductCard";
 import styles from "./ProductsPreview.module.css";
+import Link from "next/link";
 
 export default async function ProductsPreview() {
   const supabase = createClient(

@@ -115,3 +115,41 @@
     padding: 4rem 4rem;
   }
 }
+
+@media (max-width: 768px) {
+    .hero {
+      height: 260px;
+      padding: 2rem 1.5rem 3rem;
+      align-items: flex-start; /* move content upward */
+    }
+  
+    .heroContent {
+      margin-top: 1rem; /* push text slightly down from top */
+    }
+  
+    .wave {
+      height: 60px; /* make wave smaller on mobile */
+    }
+  }
+  
+  /* ======================= */
+  /* Desktop Adjustment */
+  /* ======================= */
+  
+  @media (min-width: 769px) {
+      .heroContent {
+        transform: translateY(-1rem); /* move heading up */
+      }
+    }
+    
+    
+    /* ======================= */
+    /* Mobile Adjustment */
+    /* ======================= */
+    
+    @media (max-width: 768px) {
+      .heroContent {
+        transform: translateY(1rem); /* move heading down */
+      }
+    }
+    

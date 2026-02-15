@@ -16,7 +16,10 @@ export default function HeroSport() {
         <ul className={styles.trustPoints}>
           <li>✔ 20+ Years Supply Chain Experience</li>
           <li>✔ ISO & BSCI Certified Factories</li>
-          <li>✔ Custom OEM / ODM Solutions</li>
+          <li>
+            ✔ ​"U.S. Premium Cotton. Made in Bangladesh. Duty-Free. maximum
+            margin."
+          </li>
         </ul>
 
         <div className={styles.buttons}>
