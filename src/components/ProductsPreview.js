@@ -13,8 +13,7 @@ export default async function ProductsPreview() {
   const { data: products, error } = await supabase
     .from("products")
     .select("*")
-    .order("created_at", { ascending: false })
-    .limit(4);
+    .order("created_at", { ascending: false });
 
   if (error) {
     console.error("Fetch error:", error.message);
