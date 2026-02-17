@@ -32,8 +32,8 @@
   }
   
   .imageWrapper img {
-    width: 100%;
-    max-width: 350px;
+    width: 80%;          /* was 100% */
+    max-width: 280px;    /* 350px reduced by 20% */
     border-radius: 14px;
     object-fit: cover;
     box-shadow: 0 15px 40px rgba(0,0,0,0.08);
@@ -105,19 +105,21 @@
   /* ======================= */
   
   @media (min-width: 768px) {
-  
+
     .container {
-      flex-direction: row;    /* Side-by-side */
+      flex-direction: row;
       align-items: center;
     }
   
+    /* Image takes 40% instead of 50% */
     .imageWrapper {
-      flex: 1;
+      flex: 0 0 40%;
       justify-content: flex-start;
     }
   
+    /* Content takes remaining space */
     .content {
-      flex: 1;
+      flex: 0 0 60%;
       text-align: left;
       padding: 3rem;
     }

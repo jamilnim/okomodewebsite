@@ -9,13 +9,11 @@
   font-size: 1.6rem;
 }
 
-/* ===== MOBILE FIRST (Horizontal Swipe) ===== */
-
+/* Horizontal scroll container */
 .grid {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding-bottom: 1rem;
 }
@@ -24,42 +22,33 @@
   display: none;
 }
 
-/* ===== TABLET ===== */
-
-@media (min-width: 768px) {
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    overflow: visible;
-  }
-
-  .card {
-    flex: unset;
-  }
-}
-
-/* ===== DESKTOP ===== */
-
+/* Desktop: 4 cards visible */
 @media (min-width: 1024px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
+  .grid > * {
+    flex: 0 0 calc(25% - 12px);
   }
 }
 
-/* ======================= */
-/* View All Button */
-/* ======================= */
-
+/* Button Row */
 .buttonWrapper {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
   margin-top: 2rem;
+}
+
+/* Hide arrows on mobile */
+@media (max-width: 1023px) {
+  .arrowBtn {
+    display: none;
+  }
 }
 
 .viewAllBtn {
   display: inline-block;
   padding: 0.8rem 2rem;
   background-color: #c0b87a;
-
   color: white;
   text-decoration: none;
   border-radius: 5px;
@@ -70,4 +59,17 @@
 .viewAllBtn:hover {
   background-color: #a99f63;
   transform: translateY(-2px);
+}
+
+.arrowBtn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #005F02;
+  transition: 0.2s ease;
+}
+
+.arrowBtn:hover {
+  transform: scale(1.2);
 }
