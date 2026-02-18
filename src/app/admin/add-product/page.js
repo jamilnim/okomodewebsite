@@ -15,6 +15,7 @@ export default function AddProduct() {
 
     const name = form.name.value;
     const slug = form.slug.value;
+    const category = form.category.value; // ✅ CATEGORY ADDED
     const summary = form.summary.value;
     const detail = form.detail.value;
     const price = parseFloat(Number(form.price.value).toFixed(2));
@@ -37,7 +38,9 @@ export default function AddProduct() {
         return null;
       }
 
-      const { data } = supabase.storage.from("products").getPublicUrl(fileName);
+      const { data } = supabase.storage
+        .from("products")
+        .getPublicUrl(fileName);
 
       return data.publicUrl;
     };
@@ -50,6 +53,7 @@ export default function AddProduct() {
       {
         name,
         slug,
+        category, // ✅ SAVED
         summary,
         detail,
         price,
@@ -84,6 +88,19 @@ export default function AddProduct() {
           <div className={styles.field}>
             <label>Slug</label>
             <input type="text" name="slug" required />
+          </div>
+
+          {/* ✅ CATEGORY DROPDOWN */}
+          <div className={styles.field}>
+            <label>Category</label>
+            <select name="category" required>
+              <option value="">Select Category</option>
+              <option value="denim">Denim</option>
+              <option value="t-shirt">T-shirt</option>
+              <option value="bag">Bag</option>
+              <option value="espadrille">Espadrille</option>
+              <option value="other">Other</option>
+            </select>
           </div>
 
           <div className={styles.field}>

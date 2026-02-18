@@ -105,3 +105,20 @@
     background-color: #a93226;
   }
   
+  /* Make input, select, textarea consistent */
+.field input,
+.field select,
+.field textarea {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Force proper dropdown height */
+.field select {
+  height: 3rem;
+  background-color: white;
+}

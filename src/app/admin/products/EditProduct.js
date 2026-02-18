@@ -17,6 +17,7 @@ export default function EditProduct({ product }) {
 
     const name = form.name.value;
     const slug = form.slug.value;
+    const category = form.category.value; // ✅ ADDED
     const summary = form.summary.value;
     const detail = form.detail.value;
     const price = parseFloat(Number(form.price.value).toFixed(2));
@@ -63,6 +64,7 @@ export default function EditProduct({ product }) {
       .update({
         name,
         slug,
+        category, // ✅ SAVED
         summary,
         detail,
         price,
@@ -77,7 +79,7 @@ export default function EditProduct({ product }) {
       console.error(error);
     } else {
       alert("Product updated successfully!");
-      router.refresh(); // 🔥 forces Next.js to refetch server pages
+      router.refresh();
     }
 
     setLoading(false);
@@ -98,7 +100,7 @@ export default function EditProduct({ product }) {
     } else {
       alert("Product deleted successfully!");
       router.push("/admin/products");
-      router.refresh(); // 🔥 ensures list updates
+      router.refresh();
     }
   };
 
@@ -116,6 +118,23 @@ export default function EditProduct({ product }) {
           <div className={styles.field}>
             <label>Slug</label>
             <input name="slug" defaultValue={product.slug} required />
+          </div>
+
+          {/* ✅ CATEGORY DROPDOWN */}
+          <div className={styles.field}>
+            <label>Category</label>
+            <select
+              name="category"
+              defaultValue={product.category || ""}
+              required
+            >
+              <option value="">Select Category</option>
+              <option value="denim">Denim</option>
+              <option value="t-shirt">T-shirt</option>
+              <option value="bag">Bag</option>
+              <option value="espadrille">Espadrille</option>
+              <option value="other">Other</option>
+            </select>
           </div>
 
           <div className={styles.field}>

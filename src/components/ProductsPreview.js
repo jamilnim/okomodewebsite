@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import ProductCard from "./ProductCard";
 import styles from "./ProductsPreview.module.css";
-import Link from "next/link";
+import { productFilters } from "../app/constants/productFilters";
 
 export default function ProductsPreview() {
-  const scrollRef = useRef(null);
   const [products, setProducts] = useState([]);
+  const [activeCategory, setActiveCategory] = useState("all");
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -17,55 +17,46 @@ export default function ProductsPreview() {
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
       );
 
-      const { data } = await supabase
+      let query = supabase
         .from("products")
         .select("*")
         .order("created_at", { ascending: false });
 
+      if (activeCategory !== "all") {
+        query = query.eq("category", activeCategory);
+      }
+
+      const { data } = await query.limit(8); // home limit
       setProducts(data || []);
     };
 
     fetchProducts();
-  }, []);
-
-  const scroll = (direction) => {
-    const container = scrollRef.current;
-    if (!container) return;
-
-    const card = container.firstChild;
-    if (!card) return;
-
-    const cardWidth = card.offsetWidth + 16; // 16px gap
-    const scrollAmount = cardWidth * 4; // move 4 cards
-
-    container.scrollBy({
-      left: direction === "left" ? -scrollAmount : scrollAmount,
-      behavior: "smooth",
-    });
-  };
+  }, [activeCategory]);
 
   return (
     <section className={styles.section}>
       <h2 className={styles.title}>Our Products</h2>
 
-      <div className={styles.grid} ref={scrollRef}>
-        {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
+      {/* CATEGORY TABS */}
+      <div className={styles.tabs}>
+        {productFilters.map((cat) => (
+          <button
+            key={cat.value}
+            onClick={() => setActiveCategory(cat.value)}
+            className={`${styles.tab} ${
+              activeCategory === cat.value ? styles.active : ""
+            }`}
+          >
+            {cat.label}
+          </button>
         ))}
       </div>
 
-      <div className={styles.buttonWrapper}>
-        <button onClick={() => scroll("left")} className={styles.arrowBtn}>
-          &lt;
-        </button>
-
-        <Link href="/products" className={styles.viewAllBtn}>
-          View All Products
-        </Link>
-
-        <button onClick={() => scroll("right")} className={styles.arrowBtn}>
-          &gt;
-        </button>
+      {/* PRODUCT GRID */}
+      <div className={styles.grid}>
+        {products.map((product) => (
+          <ProductCard key={product.id} {...product} />
+        ))}
       </div>
     </section>
   );
