@@ -7,7 +7,7 @@ export default function HeroSport() {
       <div className={styles.overlay}></div>
 
       <div className={styles.content}>
-        <h1>Premium T-shirt,bag and denim Sourcing Partner</h1>
+        <h1>Reliable sourcing partner for sustainable fashion.</h1>
 
         <p className={styles.slogan}>
           Sustainable Materials. Certified Factories. Reliable Delivery.

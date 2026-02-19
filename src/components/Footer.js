@@ -29,7 +29,7 @@ export default function Footer() {
           </Link>
 
           <p className={styles.tagline}>
-            Reliable sourcing partner for sustainable fashion production.
+            Reliable sourcing partner for sustainable fashion.
           </p>
 
           <p className={styles.copyright}>

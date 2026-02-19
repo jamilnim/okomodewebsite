@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
-  title: "Juste Bag Sourcing",
-  description: "Premium global bag sourcing partner.",
+  title: "Oko-mode",
+  description: "Reliable sourcing partner for sustainable fashion production.",
 };
 
 export default function RootLayout({ children }) {
