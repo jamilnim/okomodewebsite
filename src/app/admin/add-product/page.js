@@ -95,7 +95,7 @@ export default function AddProduct() {
             <label>Category</label>
             <select name="category" required>
               <option value="">Select Category</option>
-              <option value="denim">Denim</option>
+              <option value="denim">Polo</option>
               <option value="t-shirt">T-shirt</option>
               <option value="bag">Bag</option>
               <option value="espadrille">Espadrille</option>

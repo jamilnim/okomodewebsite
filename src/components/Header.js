@@ -52,6 +52,7 @@ export default function Header() {
         <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>
         <Link href="/products" onClick={() => setMenuOpen(false)}>Product</Link>
         <Link href="/services" onClick={() => setMenuOpen(false)}>Service</Link>
+        <Link href="/sustainability" onClick={() => setMenuOpen(false)}>Sustainability</Link>
        
 
         {/* Admin Dropdown */}

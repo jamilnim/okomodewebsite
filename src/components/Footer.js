@@ -6,7 +6,6 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-
         {/* Left - Navigation */}
         <div className={styles.navSection}>
           <h4>Quick Links</h4>
@@ -30,7 +29,7 @@ export default function Footer() {
           </Link>
 
           <p className={styles.tagline}>
-            Reliable manufacturing partner for sustainable bag production.
+            Reliable sourcing partner for sustainable fashion production.
           </p>
 
           <p className={styles.copyright}>
@@ -43,9 +42,8 @@ export default function Footer() {
           <h4>Contact</h4>
           <p>5250 Harmony Avenue</p>
           <p>North Hollywood, CA 01601, USA</p>
-          <p>+1 818 821 7841</p>
+          <p>✉️ ahmed@oko-mode.com</p>
         </div>
-
       </div>
     </footer>
   );

@@ -3,6 +3,7 @@ import HeroSport from "../components/HeroSport";
 import AboutHome from "../components/AboutHome";
 import ServiceHome from "@/components/ServiceHome";
 import MessageFromCEO from "@/components/MessageFromCEO";
+import SustainabilityPreview from "@/components/SustainabilityPreview";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <div id="product">
       <ProductsPreview /></div>
       <ServiceHome />
+      <SustainabilityPreview />
       < MessageFromCEO/>
     </>
   );

@@ -1,5 +1,5 @@
 export const categories = [
-    "Denim",
+    "Polo",
     "T-shirt",
     "Bag",
     "Espadrille",

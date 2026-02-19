@@ -1,0 +1,230 @@
+/* ============================= */
+/* PAGE BACKGROUND */
+/* ============================= */
+
+.pageWrapper {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  min-height: 100vh;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================= */
+/* BIG CENTER CARD */
+/* ============================= */
+
+.bigCard {
+  background: #ffffff;
+  max-width: 1200px;
+  width: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+  height: 45vh;
+  background-image: url("../../../public/pageimage/sustainabilitypage.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.overlay {
+  background: rgba(255, 255, 255, 0.75);
+  color: #005f02;
+  text-align: center;
+  padding: 40px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 800px;
+  backdrop-filter: blur(6px);
+}
+
+.overlay h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 18px;
+}
+
+
+/* ============================= */
+/* INTRO SECTION */
+/* ============================= */
+
+.intro {
+  padding: 80px 12%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.8;
+  background-color: #fafafa;
+  color: #444;
+}
+
+/* ============================= */
+/* CONTENT SECTIONS */
+/* ============================= */
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 100px 12%;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+  background-color: #f7f7f7;
+}
+
+/* TEXT BLOCK */
+
+.text {
+  flex: 1;
+}
+
+.text h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* IMAGE BLOCK */
+
+.image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 100%;
+  max-width: 500px;
+  height: 380px;           /* All images same height */
+  object-fit: cover;       /* Keeps same visual style */
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.03);
+}
+
+/* ============================= */
+/* COMMITMENT SECTION */
+/* ============================= */
+
+.commitment {
+  padding: 100px 15%;
+  text-align: center;
+  background: #111;
+  color: #ffffff;
+}
+
+.commitment h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.commitment p {
+  font-size: 18px;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
+
+/* Tablets */
+
+@media (max-width: 1000px) {
+  .section {
+    gap: 40px;
+    padding: 80px 8%;
+  }
+
+  .image img {
+    height: 320px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+  .section {
+    flex-direction: column;
+    padding: 60px 8%;
+  }
+
+  .reverse {
+    flex-direction: column;
+  }
+
+  .intro {
+    padding: 60px 8%;
+  }
+
+  .overlay h1 {
+    font-size: 28px;
+  }
+
+  .overlay p {
+    font-size: 16px;
+  }
+
+  .image img {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+/* Small Mobile */
+
+@media (max-width: 500px) {
+  .hero {
+    height: 35vh;
+  }
+
+  .overlay {
+    padding: 20px;
+  }
+
+  .overlay h1 {
+    font-size: 22px;
+  }
+
+  .overlay p {
+    font-size: 14px;
+  }
+
+  .image img {
+    height: 220px;
+  }
+
+  .commitment {
+    padding: 60px 8%;
+  }
+}
