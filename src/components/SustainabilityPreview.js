@@ -14,12 +14,12 @@ export default function SustainabilityPreview() {
       </div>
 
       <div className={styles.content}>
-        <h2 className={styles.title}>Sustainability at Oki-Mode</h2>
+        <h2 className={styles.title}>Sustainability at Ok0-Mode</h2>
 
         <p className={styles.text}>
-          At Oki-Mode, sustainability is not a marketing trend,it is a
+          At Ok0-Mode, sustainability is not a marketing trend,it is a
           long-term commitment embedded into sourcing, production, operations,
-          and logistics. As a modern fashion brand, Oki-Mode recognizes that the
+          and logistics. As a modern fashion brand, Ok0-Mode recognizes that the
           fashion industry has significant environmental and social impacts.
           Therefore, every decision from raw materials to final delivery is
           guided by responsibility, transparency, and continuous improvement.

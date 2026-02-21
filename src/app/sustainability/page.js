@@ -1,9 +1,9 @@
 import styles from "./Sustainability.module.css";
 
 export const metadata = {
-  title: "Sustainability | Oki-Mode",
+  title: "Sustainability | Oko-Mode",
   description:
-    "Oki-Mode’s commitment to sustainable materials, ethical production, and responsible logistics.",
+    "Oko-Mode’s commitment to sustainable materials, ethical production, and responsible logistics.",
 };
 
 export default function SustainabilityPage() {
@@ -13,7 +13,7 @@ export default function SustainabilityPage() {
         {/* HERO SECTION */}
         <section className={styles.hero}>
           <div className={styles.overlay}>
-            <h1>Sustainability at Oki-Mode</h1>
+            <h1>Sustainability at Oko-Mode</h1>
             <p>Responsible. Transparent. Future-Focused.</p>
           </div>
         </section>
@@ -21,9 +21,9 @@ export default function SustainabilityPage() {
         {/* INTRO */}
         <section className={styles.intro}>
           <p>
-            At Oki-Mode, sustainability is not a marketing trend — it is a
+            At Oko-Mode, sustainability is not a marketing trend — it is a
             long-term commitment embedded into sourcing, production, operations,
-            and logistics. As a modern fashion brand, Oki-Mode recognizes that
+            and logistics. As a modern fashion brand, Oko-Mode recognizes that
             the fashion industry has significant environmental and social
             impacts. Therefore, every decision — from raw materials to final
             delivery — is guided by responsibility, transparency, and continuous
@@ -36,7 +36,7 @@ export default function SustainabilityPage() {
           <div className={styles.text}>
             <h2>Responsible & Sustainable Material Sourcing</h2>
             <p>
-              Oki-Mode prioritizes environmentally responsible materials that
+              Oko-Mode prioritizes environmentally responsible materials that
               reduce harm to ecosystems while maintaining durability and premium
               quality. We use organic cotton, recycled fabrics, TENCEL™ Lyocell,
               low-impact dyes, and continuously explore innovative sustainable
@@ -80,7 +80,7 @@ export default function SustainabilityPage() {
           <div className={styles.text}>
             <h2>Responsible Logistics & Operations</h2>
             <p>
-              Sustainability extends beyond sourcing and manufacturing. Oki-Mode
+              Sustainability extends beyond sourcing and manufacturing. Oko-Mode
               integrates responsible practices into its internal operations,
               packaging systems, and distribution strategies by optimizing
               shipments, reducing waste, using recyclable materials, and
@@ -97,7 +97,7 @@ export default function SustainabilityPage() {
         <section className={styles.commitment}>
           <h2>Transparency & Continuous Improvement</h2>
           <p>
-            Sustainability is an ongoing journey. Oki-Mode is committed to
+            Sustainability is an ongoing journey. Oko-Mode is committed to
             measurable goals, increasing certified sustainable materials,
             improving supply chain transparency, and designing durable, timeless
             products that encourage conscious consumption.
