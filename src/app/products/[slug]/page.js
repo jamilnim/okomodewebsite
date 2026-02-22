@@ -1,7 +1,7 @@
 import { supabase } from "../../../lib/supabase";
+import styles from "./ProductDetail.module.css";
 
 export default async function ProductDetail({ params }) {
-  // 👇 FIX: unwrap params
   const resolvedParams = await params;
   const slug = resolvedParams.slug;
 
@@ -13,32 +13,67 @@ export default async function ProductDetail({ params }) {
 
   if (error || !product) {
     return (
-      <div style={{ padding: "4rem" }}>
+      <div className={styles.notFound}>
         <h2>Product not found</h2>
       </div>
     );
   }
 
+  const formattedPriceRange = product.price_range
+    ? product.price_range.split("/").map((line, index) => (
+        <div key={index}>{line.trim()}</div>
+      ))
+    : null;
+
   return (
-    <div style={{ maxWidth: "1000px", margin: "4rem auto" }}>
-      <h1>{product.name}</h1>
+    <div className={styles.wrapper}>
+      <h1 className={styles.title}>{product.name}</h1>
 
-      <img
-        src={product.main_image}
-        alt={product.name}
-        style={{ width: "100%", marginBottom: "2rem" }}
-      />
+      {/* Top Section */}
+      <div className={styles.topSection}>
+        {/* Left - Image */}
+        <div className={styles.imageContainer}>
+          <img
+            src={product.main_image}
+            alt={product.name}
+            className={styles.mainImage}
+          />
+        </div>
 
-      <p>{product.detail}</p>
+        {/* Right - Two Equal Cards */}
+        <div className={styles.infoContainer}>
+          <div className={styles.card}>
+            <span className={styles.label}>Detail:</span>
+            <p className={styles.detail}>{product.detail}</p>
+          </div>
 
-      <h3>Price: ${product.price}</h3>
+          {product.price_range && (
+            <div className={styles.card}>
+              <span className={styles.label}>Price Range:</span>
+              <div className={styles.priceRange}>
+                {formattedPriceRange}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
 
-      <div style={{ display: "flex", gap: "1rem", marginTop: "2rem" }}>
+      {/* Other Images - Below Everything */}
+      <div className={styles.gallery}>
         {product.other_image1 && (
-          <img src={product.other_image1} width="200" alt="Other 1" />
+          <img
+            src={product.other_image1}
+            alt="Other 1"
+            className={styles.galleryImage}
+          />
         )}
+
         {product.other_image2 && (
-          <img src={product.other_image2} width="200" alt="Other 2" />
+          <img
+            src={product.other_image2}
+            alt="Other 2"
+            className={styles.galleryImage}
+          />
         )}
       </div>
     </div>

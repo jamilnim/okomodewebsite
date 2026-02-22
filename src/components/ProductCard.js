@@ -17,7 +17,6 @@ export default function ProductCard({
       <div className={styles.content}>
         <h3>{name}</h3>
         <p>{summary}</p>
-        <span className={styles.price}>${price}</span>
 
         <Link href={`/products/${slug}`} className={styles.button}>
           View More

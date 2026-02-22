@@ -17,10 +17,12 @@ export default function EditProduct({ product }) {
 
     const name = form.name.value;
     const slug = form.slug.value;
-    const category = form.category.value; // ✅ ADDED
+    const category = form.category.value;
     const summary = form.summary.value;
     const detail = form.detail.value;
-    const price = parseFloat(Number(form.price.value).toFixed(2));
+
+    // ✅ NEW price_range
+    const price_range = form.price_range.value;
 
     const mainImageFile = form.mainImage.files[0];
     const otherImage1File = form.otherImage1.files[0];
@@ -64,10 +66,10 @@ export default function EditProduct({ product }) {
       .update({
         name,
         slug,
-        category, // ✅ SAVED
+        category,
         summary,
         detail,
-        price,
+        price_range, // ✅ SAVED
         main_image: mainImageUrl || null,
         other_image1: otherImage1Url || null,
         other_image2: otherImage2Url || null,
@@ -120,7 +122,6 @@ export default function EditProduct({ product }) {
             <input name="slug" defaultValue={product.slug} required />
           </div>
 
-          {/* ✅ CATEGORY DROPDOWN */}
           <div className={styles.field}>
             <label>Category</label>
             <select
@@ -147,14 +148,13 @@ export default function EditProduct({ product }) {
             <textarea name="detail" defaultValue={product.detail} required />
           </div>
 
+          {/* ✅ REPLACED PRICE WITH PRICE RANGE */}
           <div className={styles.field}>
-            <label>Price</label>
+            <label>Price Range</label>
             <input
-              type="number"
-              name="price"
-              step="0.01"
-              min="0"
-              defaultValue={product.price}
+              type="text"
+              name="price_range"
+              defaultValue={product.price_range}
               required
             />
           </div>

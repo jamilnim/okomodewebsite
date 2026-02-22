@@ -15,10 +15,12 @@ export default function AddProduct() {
 
     const name = form.name.value;
     const slug = form.slug.value;
-    const category = form.category.value; // ✅ CATEGORY ADDED
+    const category = form.category.value;
     const summary = form.summary.value;
     const detail = form.detail.value;
-    const price = parseFloat(Number(form.price.value).toFixed(2));
+
+    // ✅ NEW price_range
+    const price_range = form.price_range.value;
 
     const mainImage = form.mainImage.files[0];
     const otherImage1 = form.otherImage1.files[0];
@@ -53,10 +55,10 @@ export default function AddProduct() {
       {
         name,
         slug,
-        category, // ✅ SAVED
+        category,
         summary,
         detail,
-        price,
+        price_range, // ✅ SAVED IN DATABASE
         main_image: mainImageUrl || null,
         other_image1: otherImage1Url || null,
         other_image2: otherImage2Url || null,
@@ -90,7 +92,6 @@ export default function AddProduct() {
             <input type="text" name="slug" required />
           </div>
 
-          {/* ✅ CATEGORY DROPDOWN */}
           <div className={styles.field}>
             <label>Category</label>
             <select name="category" required>
@@ -113,9 +114,15 @@ export default function AddProduct() {
             <textarea name="detail" required />
           </div>
 
+          {/* ✅ REPLACED PRICE WITH PRICE RANGE */}
           <div className={styles.field}>
-            <label>Price</label>
-            <input type="number" name="price" step="0.01" min="0" required />
+            <label>Price Range</label>
+            <input
+              type="text"
+              name="price_range"
+              placeholder="e.g. €80–€120 / Premium / On Request"
+              required
+            />
           </div>
 
           <div className={styles.field}>
