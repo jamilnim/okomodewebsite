@@ -7,6 +7,9 @@ import ScrollToTop from "@/components/ScrollToTop";
 export const metadata = {
   title: "Oko-mode",
   description: "Reliable sourcing partner for sustainable fashion production.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
