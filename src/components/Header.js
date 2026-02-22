@@ -3,11 +3,42 @@
 import Link from "next/link";
 import styles from "./Header.module.css";
 import React, { useState, useRef, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [adminOpen, setAdminOpen] = useState(false);
+  const [user, setUser] = useState(null);
   const dropdownRef = useRef(null);
+  const router = useRouter();
+
+  // Check auth status
+  useEffect(() => {
+    checkUser();
+
+    const { data: listener } = supabase.auth.onAuthStateChange(
+      (_event, session) => {
+        setUser(session?.user || null);
+      }
+    );
+
+    return () => {
+      listener.subscription.unsubscribe();
+    };
+  }, []);
+
+  const checkUser = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    setUser(user);
+  };
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    setAdminOpen(false);
+    setMenuOpen(false);
+    router.push("/");
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -53,37 +84,60 @@ export default function Header() {
         <Link href="/products" onClick={() => setMenuOpen(false)}>Product</Link>
         <Link href="/services" onClick={() => setMenuOpen(false)}>Service</Link>
         <Link href="/sustainability" onClick={() => setMenuOpen(false)}>Sustainability</Link>
-       
 
-        {/* Admin Dropdown */}
+        {/* Admin / Login Dropdown */}
         <div className={styles.dropdown} ref={dropdownRef}>
           <span
             className={styles.dropdownTitle}
             onClick={() => setAdminOpen(!adminOpen)}
           >
-            Admin ▾
+            {user ? "Admin ▾" : "Login ▾"}
           </span>
 
           {adminOpen && (
             <div className={styles.dropdownMenu}>
-              <Link
-                href="/admin/products"
-                onClick={() => {
-                  setAdminOpen(false);
-                  setMenuOpen(false);
-                }}
-              >
-                Products
-              </Link>
-              <Link
-                href="/admin/messages"
-                onClick={() => {
-                  setAdminOpen(false);
-                  setMenuOpen(false);
-                }}
-              >
-                Messages
-              </Link>
+              {!user && (
+                <Link
+                  href="/admin/login"
+                  onClick={() => {
+                    setAdminOpen(false);
+                    setMenuOpen(false);
+                  }}
+                >
+                  Login
+                </Link>
+              )}
+
+              {user && (
+                <>
+                  <Link
+                    href="/admin/products"
+                    onClick={() => {
+                      setAdminOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Products
+                  </Link>
+
+                  <Link
+                    href="/admin/messages"
+                    onClick={() => {
+                      setAdminOpen(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    Messages
+                  </Link>
+
+                  <span
+                    className={styles.logoutBtn}
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </span>
+                </>
+              )}
             </div>
           )}
         </div>

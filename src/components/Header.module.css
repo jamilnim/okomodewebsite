@@ -36,14 +36,14 @@
 
 .nav a {
   text-decoration: none;
-  color:#427A43;
+  color: #427a43;
   font-size: 0.95rem;
   transition: 0.3s ease;
   font-weight: 600;
 }
 
 .nav a:hover {
-  color: #C0B87A;
+  color: #c0b87a;
   font-size: 1rem;
 }
 
@@ -53,14 +53,14 @@
 
 .contactBtn {
   padding: 0.6rem 1.2rem;
-  background-color: #005F02;
+  background-color: #005f02;
   color: white !important;
   border-radius: 6px;
   font-weight: 500;
 }
 
 .contactBtn:hover {
-  background-color: #427A43;
+  background-color: #427a43;
 }
 
 /* ========================= */
@@ -100,7 +100,7 @@
 }
 
 .dropdownMenu a:hover {
-  color: #005F02;
+  color: #005f02;
 }
 
 /* ========================= */
@@ -133,13 +133,23 @@
 .active span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
 }
+.logoutBtn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: block;
+  color: #c00;
+  transition: 0.3s ease;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
 
 /* ========================= */
 /* MOBILE */
 /* ========================= */
 
 @media (max-width: 992px) {
-
   .burger {
     display: flex;
   }
