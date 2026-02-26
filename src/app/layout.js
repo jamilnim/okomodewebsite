@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata = {
-  title: "Oko-mode",
-  description: "Reliable sourcing partner for sustainable fashion production.",
+  title: "Oko Mode | Sustainable Fashion Sourcing Partner",
+  description: "Oko Mode is a reliable sourcing partner for sustainable fashion production and ethical manufacturing.",
   icons: {
     icon: "/favicon.png",
   },
