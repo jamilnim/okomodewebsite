@@ -20,7 +20,7 @@ export default function AdminLogin() {
     if (error) {
       alert("Invalid credentials");
     } else {
-      router.push("/admin/products");
+      router.push("/admin/editProducts");
     }
   };
 
@@ -35,7 +35,8 @@ export default function AdminLogin() {
           required
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br /><br />
+        <br />
+        <br />
 
         <input
           type="password"
@@ -43,7 +44,8 @@ export default function AdminLogin() {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br /><br />
+        <br />
+        <br />
 
         <button type="submit">Login</button>
       </form>

@@ -2,13 +2,39 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { supabase } from "../../../lib/supabase";
+import { supabase } from "@/lib/supabase";
 import styles from "./EditProduct.module.css";
 
 export default function EditProduct({ product }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
+  // Safety check
+  if (!product) {
+    return <p style={{ padding: "4rem" }}>Loading...</p>;
+  }
+
+  // Upload helper
+  const uploadImage = async (file) => {
+    if (!file) return null;
+
+    const fileName = `${Date.now()}-${file.name}`;
+
+    const { error } = await supabase.storage
+      .from("products")
+      .upload(fileName, file);
+
+    if (error) {
+      console.error("Upload error:", error);
+      return null;
+    }
+
+    const { data } = supabase.storage.from("products").getPublicUrl(fileName);
+
+    return data.publicUrl;
+  };
+
+  // Handle Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -20,34 +46,11 @@ export default function EditProduct({ product }) {
     const category = form.category.value;
     const summary = form.summary.value;
     const detail = form.detail.value;
-
-    // ✅ NEW price_range
     const price_range = form.price_range.value;
 
     const mainImageFile = form.mainImage.files[0];
     const otherImage1File = form.otherImage1.files[0];
     const otherImage2File = form.otherImage2.files[0];
-
-    const uploadImage = async (file) => {
-      if (!file) return null;
-
-      const fileName = `${Date.now()}-${file.name}`;
-
-      const { error } = await supabase.storage
-        .from("products")
-        .upload(fileName, file);
-
-      if (error) {
-        console.error("Upload error:", error);
-        return null;
-      }
-
-      const { data } = supabase.storage
-        .from("products")
-        .getPublicUrl(fileName);
-
-      return data.publicUrl;
-    };
 
     const mainImageUrl = mainImageFile
       ? await uploadImage(mainImageFile)
@@ -69,7 +72,7 @@ export default function EditProduct({ product }) {
         category,
         summary,
         detail,
-        price_range, // ✅ SAVED
+        price_range,
         main_image: mainImageUrl || null,
         other_image1: otherImage1Url || null,
         other_image2: otherImage2Url || null,
@@ -81,29 +84,12 @@ export default function EditProduct({ product }) {
       console.error(error);
     } else {
       alert("Product updated successfully!");
-      router.refresh();
+
+      // ✅ REDIRECT TO PRODUCT LIST PAGE
+      router.push("/admin/editProducts");
     }
 
     setLoading(false);
-  };
-
-  const handleDelete = async () => {
-    const confirmDelete = confirm("Are you sure you want to delete this product?");
-    if (!confirmDelete) return;
-
-    const { error } = await supabase
-      .from("products")
-      .delete()
-      .eq("id", product.id);
-
-    if (error) {
-      alert("Delete failed");
-      console.error(error);
-    } else {
-      alert("Product deleted successfully!");
-      router.push("/admin/products");
-      router.refresh();
-    }
   };
 
   return (
@@ -112,16 +98,19 @@ export default function EditProduct({ product }) {
         <h1 className={styles.title}>Edit Product</h1>
 
         <form onSubmit={handleSubmit} className={styles.form}>
+          {/* Name */}
           <div className={styles.field}>
             <label>Product Name</label>
             <input name="name" defaultValue={product.name} required />
           </div>
 
+          {/* Slug */}
           <div className={styles.field}>
             <label>Slug</label>
             <input name="slug" defaultValue={product.slug} required />
           </div>
 
+          {/* Category */}
           <div className={styles.field}>
             <label>Category</label>
             <select
@@ -138,17 +127,19 @@ export default function EditProduct({ product }) {
             </select>
           </div>
 
+          {/* Summary */}
           <div className={styles.field}>
             <label>Short Summary</label>
             <textarea name="summary" defaultValue={product.summary} required />
           </div>
 
+          {/* Detail */}
           <div className={styles.field}>
             <label>Detail Description</label>
             <textarea name="detail" defaultValue={product.detail} required />
           </div>
 
-          {/* ✅ REPLACED PRICE WITH PRICE RANGE */}
+          {/* Price Range */}
           <div className={styles.field}>
             <label>Price Range</label>
             <input
@@ -159,6 +150,7 @@ export default function EditProduct({ product }) {
             />
           </div>
 
+          {/* Images */}
           <div className={styles.imageBlock}>
             <p>Main Image</p>
             {product.main_image && <img src={product.main_image} alt="" />}
@@ -177,17 +169,10 @@ export default function EditProduct({ product }) {
             <input type="file" name="otherImage2" accept="image/*" />
           </div>
 
+          {/* Button */}
           <div className={styles.buttonGroup}>
             <button type="submit" className={styles.saveBtn}>
               {loading ? "Saving..." : "Save Changes"}
-            </button>
-
-            <button
-              type="button"
-              onClick={handleDelete}
-              className={styles.deleteBtn}
-            >
-              Delete Product
             </button>
           </div>
         </form>

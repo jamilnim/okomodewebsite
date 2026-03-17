@@ -111,13 +111,13 @@ export default function Header() {
               {user && (
                 <>
                   <Link
-                    href="/admin/products"
+                    href="/admin/editProducts"
                     onClick={() => {
                       setAdminOpen(false);
                       setMenuOpen(false);
                     }}
                   >
-                    Products
+                    EditProduct
                   </Link>
 
                   <Link
